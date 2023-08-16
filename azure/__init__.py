@@ -74,16 +74,22 @@ class Azure:
             payloadFields.get('Custom.Description'),
             )
         
-    
+    def teste(self):
+        req = requests.get(f'{self.baseUrl}/wit/fields/Custom.Client',headers=self.__headers)
+        print(req.json())
     def getWorkItems(self) -> list[WorkItem]:
         try:
             query = self.getQueryResult()
             urls = [f"{self.baseUrl}/wit/workitems/{wi.id}?api-version=7.1-preview.2" for wi in query.workItems]
             workItems = []
             logger.info(f"{len(urls)} work items identified. Retrieving details")
+            self.clients = []
             def parse(item):
                 payload = dict(item)
                 payloadFields = dict(payload.get('fields'))
+                client = payloadFields.get('Custom.Client')
+                if client not in self.clients:
+                    self.clients.append(client)
                 workItems.append(WorkItem(
                     payload.get('id'),
                     payloadFields.get('System.Title'),
@@ -94,14 +100,16 @@ class Azure:
                     payloadFields.get('Microsoft.VSTS.Common.ClosedDate'),
                     payloadFields.get('Microsoft.VSTS.Common.ClosedBy'),
                     payloadFields.get('Microsoft.VSTS.Common.Priority'),
-                    payloadFields.get('Custom.Client'),
+                    client,
                     payloadFields.get('Custom.Project'),
                     payloadFields.get('Custom.AnalystFunctional'),
                     payloadFields.get('Custom.Description'),
                     ))
             concurrentRequests(self.__headers,urls,parse)
+            
             logger.debug('Work items details retrieved.')
             return workItems
-        except Exception:
+        except Exception as exp:
             logger.error('Failed to list work items')
+            logger.error(exp)
             

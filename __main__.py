@@ -1,5 +1,8 @@
-from azure import Azure
+import json
 import logging
+
+from azure import Azure
+from data import Data
 
 logger = logging.getLogger('Charts')
 logging.basicConfig(level=logging.INFO)
@@ -9,4 +12,7 @@ az = Azure()
 
 logger.info('Listing work items')
 items = az.getWorkItems()
-logger.info(items)
+
+df = Data(items)
+df.perClient()
+
