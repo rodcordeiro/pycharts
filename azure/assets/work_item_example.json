@@ -1,0 +1,59 @@
+{
+    "id": 1436,
+    "rev": 10,
+    "fields": {
+        "System.AreaPath": "Projetos",
+        "System.TeamProject": "Projetos",
+        "System.IterationPath": "Projetos\\PlanoAção-Sprint08",
+        "System.WorkItemType": "Product Backlog Item",
+        "System.State": "Finish",
+        "System.Reason": "Moved out of state Test",
+        "System.AssignedTo": "Rodrigo Mendonça <rmendonca@pdasolucoes.com.br>",
+        "System.CreatedDate": "2022-07-13T15:07:48.457Z",
+        "System.CreatedBy": "Rodrigo Mendonça <rmendonca@pdasolucoes.com.br>",
+        "System.ChangedDate": "2022-07-18T11:50:24.39Z",
+        "System.ChangedBy": "Erik Rodrigues da Silva <pda_esilva@outlook.com>",
+        "System.CommentCount": 2,
+        "System.Title": "Seleção dos pedidos a serem expedidos",
+        "System.BoardColumn": "Finished",
+        "System.BoardColumnDone": "False",
+        "Microsoft.VSTS.Common.StateChangeDate": "2022-07-18T11:50:24.39Z",
+        "Microsoft.VSTS.Common.ActivatedDate": "2022-07-14T18:19:55.743Z",
+        "Microsoft.VSTS.Common.ActivatedBy": "Robinson Tavares <rtavares@pdasolucoes.com.br>",
+        "Microsoft.VSTS.Common.ClosedDate": "2022-07-18T11:50:24.39Z",
+        "Microsoft.VSTS.Common.ClosedBy": "Erik Rodrigues da Silva <pda_esilva@outlook.com>",
+        "Microsoft.VSTS.Common.Priority": 4,
+        "Microsoft.VSTS.Common.ValueArea": "Business",
+        "Microsoft.VSTS.Common.BacklogPriority": 399511826,
+        "WEF_38DDEAE3F3AE495E88E8C5D4E8BF84DE_Kanban.Column": "Finished",
+        "WEF_38DDEAE3F3AE495E88E8C5D4E8BF84DE_Kanban.Column.Done": "False",
+        "Custom.Client": "HidroLight",
+        "Custom.Project": "WMS",
+        "Custom.AnalystFunctional": "Robinson",
+        "System.Description": "<div>Ao selecionar a transportadora, permitir ao usuário selecionar os pedidos que serão expedidos </div>"
+    },
+    "_links": {
+        "self": {
+            "href": "https://dev.azure.com/pdasolucoes/_apis/wit/workItems/1436"
+        },
+        "workItemUpdates": {
+            "href": "https://dev.azure.com/pdasolucoes/_apis/wit/workItems/1436/updates"
+        },
+        "workItemRevisions": {
+            "href": "https://dev.azure.com/pdasolucoes/_apis/wit/workItems/1436/revisions"
+        },
+        "workItemComments": {
+            "href": "https://dev.azure.com/pdasolucoes/_apis/wit/workItems/1436/comments"
+        },
+        "html": {
+            "href": "https://dev.azure.com/pdasolucoes/03105f34-ffa4-48ca-b433-f6a2abd72cd7/_workitems/edit/1436"
+        },
+        "workItemType": {
+            "href": "https://dev.azure.com/pdasolucoes/03105f34-ffa4-48ca-b433-f6a2abd72cd7/_apis/wit/workItemTypes/Product%20Backlog%20Item"
+        },
+        "fields": {
+            "href": "https://dev.azure.com/pdasolucoes/_apis/wit/fields"
+        }
+    },
+    "url": "https://dev.azure.com/pdasolucoes/_apis/wit/workItems/1436"
+}
