@@ -9,6 +9,4 @@ az = Azure()
 
 logger.info('Listing work items')
 items = az.getWorkItems()
-
-for item in items:
-    logger.info(item.id)
+logger.info(items)
