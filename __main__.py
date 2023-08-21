@@ -4,15 +4,14 @@ import logging
 from azure import Azure
 from data import Data
 
-logger = logging.getLogger('Charts')
+logger = logging.getLogger("Charts")
 logging.basicConfig(level=logging.INFO)
 
-logger.info('Initializing')
+logger.info("Initializing")
 az = Azure()
 
-logger.info('Listing work items')
+logger.info("Listing work items")
 items = az.getWorkItems()
 
 df = Data(items)
-df.perClient()
-
+df.dashboardTotalItems()
