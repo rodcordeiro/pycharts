@@ -1,5 +1,7 @@
 import pandas as pd
 from pandas import DataFrame
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 from azure.models.workItem import WorkItem
 
@@ -12,15 +14,17 @@ class Data:
     def __convertToList(self, objs: list[WorkItem]) -> DataFrame:
         dicts = []
         for item in objs:
-            dicts.append(item.__dict__)
+            dicts.append({**item.__dict__, "quantity": 1})
         return pd.json_normalize(dicts)
 
     def dashboardTotalItems(self):
-        data = self.data[["workItemType"]].groupby(["workItemType"]).value_counts()
-        print(data)
-        # data.set_index("workItemType", inplace=True)
-        # plot = data.plot.pie(y="workItemType", figsize=(7, 7))
-        # print(plot)
+        types = self.data.groupby(["workItemType"]).describe().index.tolist()
+        values = self.data.query(f"workItemType == 'Bug'", inplace=True)
+        print(types, values)
+
+        # graph = sns.barplot(x="workItemType", y="quantity", color="blue")
+        # graph.set_title("Work item x Tipo")
+        # plt.show(graph)
 
     def perClient(self, client: str):
         data = self.data
