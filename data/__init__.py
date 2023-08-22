@@ -1,7 +1,7 @@
 import pandas as pd
 from pandas import DataFrame
 import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 from azure.models.workItem import WorkItem
 
@@ -19,12 +19,23 @@ class Data:
 
     def dashboardTotalItems(self):
         types = self.data.groupby(["workItemType"]).describe().index.tolist()
-        values = self.data.query(f"workItemType == 'Bug'", inplace=True)
-        print(types, values)
+        values = [
+            len(self.data[self.data["workItemType"] == wiType].index.tolist())
+            for wiType in types
+        ]
+        fig = px.pie(
+            names=types,
+            values=values,
+            title="Comparação tipo x total de itens",
+            labels={"x": "Tipo", "y": "Total"},
+            hole=0.6,
+        )
+        fig.show()
 
-        # graph = sns.barplot(x="workItemType", y="quantity", color="blue")
-        # graph.set_title("Work item x Tipo")
-        # plt.show(graph)
+    def dashboardClientRankingPerType(self):
+        types = self.data.groupby(["workItemType"]).describe().index.tolist()
+        clients = self.data.groupby(["client"]).describe().index.tolist()
+        print(types, clients)
 
     def perClient(self, client: str):
         data = self.data
