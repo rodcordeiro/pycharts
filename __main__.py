@@ -14,4 +14,4 @@ logger.info("Listing work items")
 items = az.getWorkItems()
 
 df = Data(items)
-df.dashboardClientRankingPerType()
+df.dashboardTotalItems()
