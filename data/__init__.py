@@ -42,9 +42,9 @@ class Data:
     def dashboardTotalItems(self):
         # Agrupar por tipo de trabalho e contar a quantidade de ocorrências
         type_counts = self.data["workItemType"].value_counts()
-
+        print(type_counts, type_counts.index, type_counts.values)
         # Criar o gráfico de barras
-        sns.set_style("whitegrid")
+        sns.set_style("dark")
         plt.figure(figsize=(10, 6))
         graph = sns.barplot(x=type_counts.index, y=type_counts.values, color="blue")
         graph.set_title("Work item x Tipo")
@@ -59,6 +59,7 @@ class Data:
             graph.text(i, v + 1, str(v), color="black", ha="center")
         return plt.show()
 
-    def perClient(self, client: str):
-        data = self.data
-        print(data)
+    def rankingperclientandtype(self):
+        data = self.data[["workItemType", "client"]].value_counts()
+        print(data.index)
+        print(data.values)
